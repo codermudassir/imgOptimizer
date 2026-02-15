@@ -4,25 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBP to PNG Converter - Convert WebP to PNG Online Free</title>
+    <title>WebP to PNG Converter | Free Online Tool</title>
     <meta name="description"
-        content="Convert WEBP images to PNG format instantly. Perfect for editing or when you need PNG compatibility. Free and secure online tool.">
-    <meta name="keywords" content="webp to png, convert webp to png online, webp to png converter, free image converter">
-    <meta name="google-site-verification" content="-4XJE0uWGp4THHR6cwdcv9pFYvg9cwYBoQJ5qi7xaQw" />
-    <link rel="canonical" href="https://imgoptimizer.netlify.app/webp-to-png.html">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="WEBP to PNG Converter - Free Online">
-    <meta property="og:description" content="Convert WEBP images to PNG format instantly. Perfect when you need PNG for editing or compatibility.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://imgoptimizer.netlify.app/webp-to-png.html">
-
+        content="Convert WebP images to PNG format instantly. Maintain transparency and high quality. Free, secure, and privacy-first.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+    <!-- Header -->
     <header>
-        <div class="container header-content">
+        <div class="container header-inner">
             <a href="index.html" class="logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -32,90 +24,204 @@
                 </svg>
                 ImgTool
             </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="png-to-webp.html">PNG to WEBP Converter</a></li>
-                    <li><a href="jpg-to-webp.html">JPG to WEBP Converter</a></li>
-                    <li><a href="webp-to-png.html" class="active" style="color:var(--primary-color);">WEBP to PNG Converter</a></li>
-                    <li><a href="compress-png.html">Compress PNG</a></li>
-                    <li><a href="compress-jpg.html">Compress JPG</a></li>
-                    <li><a href="resize-image.html">Resize Image</a></li>
-                    <li><a href="image-size-reducer.html">Image Compression Tool</a></li>
-                    <li><a href="index.html#faq">FAQ</a></li>
-                </ul>
+
+            <nav class="desktop-nav">
+                <div class="mega-menu-trigger">
+                    <span class="nav-link">Tools ▾</span>
+                    <div class="mega-menu-dropdown">
+                        <a href="png-to-webp.html" class="mega-item">
+                            <span class="mega-icon">🖼️</span>
+                            <div><strong>PNG to WebP</strong><br><small>Optimize PNG images</small></div>
+                        </a>
+                        <a href="webp-to-png.html" class="mega-item">
+                            <span class="mega-icon">🔄</span>
+                            <div><strong>WebP to PNG</strong><br><small>Convert WebP back to PNG</small></div>
+                        </a>
+                        <a href="jpg-to-webp.html" class="mega-item">
+                            <span class="mega-icon">📸</span>
+                            <div><strong>JPG to WebP</strong><br><small>Reduce JPG size</small></div>
+                        </a>
+                        <a href="avif-to-png-jpg-webp.html" class="mega-item">
+                            <span class="mega-icon">🚀</span>
+                            <div><strong>AVIF Converter</strong><br><small>Modern format conversion</small></div>
+                        </a>
+                        <a href="compress-image.html" class="mega-item">
+                            <span class="mega-icon">📉</span>
+                            <div><strong>Image Compressor</strong><br><small>Reduce file size</small></div>
+                        </a>
+                        <a href="resize-image.html" class="mega-item">
+                            <span class="mega-icon">📐</span>
+                            <div><strong>Image Resizer</strong><br><small>Resize dimensions</small></div>
+                        </a>
+                    </div>
+                </div>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+                <button id="theme-toggle" class="btn-secondary hidden" aria-label="Toggle Dark Mode">
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
             </nav>
-            <button id="theme-toggle" class="btn-secondary" aria-label="Toggle Dark Mode">
-                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-                <svg class="sun-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-            </button>
+
+            <button class="hamburger" aria-label="Menu">☰</button>
         </div>
     </header>
+
+    <div class="sidebar-overlay"></div>
+    <div class="mobile-sidebar">
+        <button class="close-sidebar" style="align-self: flex-end; font-size: 1.5rem; padding: 0.5rem;">&times;</button>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="png-to-webp.html" class="nav-link">PNG to WebP</a>
+            <a href="webp-to-png.html" class="nav-link">WebP to PNG</a>
+            <a href="jpg-to-webp.html" class="nav-link">JPG to WebP</a>
+            <a href="compress-image.html" class="nav-link">Compressor</a>
+            <a href="resize-image.html" class="nav-link">Resizer</a>
+        </div>
+    </div>
+
     <main>
+        <!-- Hero Section -->
         <section class="hero">
-            <h1>WEBP to PNG Converter</h1>
-            <p>Convert WEBP images to PNG format instantly. Perfect for when you need to edit WEBP files in software that doesn't support them, or when you need PNG for compatibility.</p>
-        </section>
-        <section class="container">
-            <div class="tool-container">
-                <div id="upload-area" class="upload-area">
-                    <span class="upload-icon">🖼️</span>
-                    <h3>Drag & Drop WebP images here</h3>
-                    <button class="btn-primary">Select WebP Files</button>
-                    <input type="file" id="file-input" multiple accept="image/webp, image/gif" hidden>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Convert WebP to PNG</h1>
+                    <p>Accurate and fast conversion from WebP to PNG. Recover your images in a widely supported format
+                        with transparency.</p>
+                    <a href="#upload-area" class="btn-primary">Convert Now</a>
                 </div>
-                <div id="file-list" class="file-list hidden"></div>
-                <div id="controls" class="controls hidden">
-                    <div class="control-group">
-                        <label for="format-select">Output Format</label>
-                        <select id="format-select">
-                            <option value="image/png" selected>PNG (Recommended)</option>
-                            <option value="image/jpeg">JPEG</option>
-                        </select>
-                    </div>
-                    <div class="control-group">
-                        <label for="quality-slider">Quality: <span id="quality-value">100</span>%</label>
-                        <input type="range" id="quality-slider" min="1" max="100" value="100">
-                    </div>
-                </div>
-                <div id="action-area" class="controls hidden"
-                    style="border-top:none; padding-top:0; justify-content:flex-end;">
-                    <button id="process-all" class="btn-primary">Convert to PNG</button>
-                    <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
-                    <button id="clear-all" class="btn-secondary">Clear All</button>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="WebP to PNG">
                 </div>
             </div>
         </section>
 
-        <section id="content" class="content-section">
-            <h2>How to Convert WEBP to PNG</h2>
-            <p>Upload your WEBP file, choose PNG as the output format, and download. All processing happens in your browser. No account needed.</p>
-            <h3>When to Use WEBP to PNG</h3>
-            <p>Use this tool when you need a PNG file—for example, for design software that doesn't support WEBP, or when a site or app only accepts PNG. You keep full quality and transparency.</p>
-            <p>Need the opposite? Use our <a href="png-to-webp.html">PNG to WEBP converter</a> or the main <a href="index.html">image converter</a>.</p>
+        <!-- Tool Section -->
+        <section class="tool-section" id="tool">
+            <div class="container">
+                <div class="tool-wrapper">
+                    <div id="upload-area" class="upload-area">
+                        <span class="upload-icon">🔄</span>
+                        <h3>Drag & Drop WebP Images Here</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">or click to browse files</p>
+                        <button class="btn-primary">Select WebP Files</button>
+                        <input type="file" id="file-input" multiple accept="image/webp" hidden>
+                    </div>
+
+                    <div id="file-list" class="file-list hidden"></div>
+
+                    <div id="controls" class="controls hidden">
+                        <div class="control-group">
+                            <label for="format-select">Output Format</label>
+                            <select id="format-select">
+                                <option value="image/png" selected>PNG (Lossless)</option>
+                                <option value="image/jpeg">JPEG</option>
+                                <option value="image/webp">WebP</option>
+                            </select>
+                        </div>
+
+                        <div class="control-group" style="flex: 1; min-width: 250px;">
+                            <div class="flex justify-between">
+                                <label for="quality-slider">Quality</label>
+                                <span id="quality-value">80</span>
+                            </div>
+                            <input type="range" id="quality-slider" min="1" max="100" value="80">
+                            <p id="estimated-size"
+                                style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Estimated
+                                quality: 80%</p>
+                        </div>
+                    </div>
+
+                    <div id="action-area" class="controls hidden" style="border-top: none; justify-content: flex-end;">
+                        <button id="clear-all" class="btn-secondary">Clear All</button>
+                        <button id="process-all" class="btn-primary">Convert All</button>
+                        <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">✨</span>
+                        <h3>Lossless Quality</h3>
+                        <p>Convert your WebP images back to PNG without losing any detail.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌍</span>
+                        <h3>Universal Compatibility</h3>
+                        <p>PNG is supported by every browser and image viewer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I convert animated WebP?
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Currently we support standard static image conversion.
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 ImgTool. All rights reserved.</p>
-            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
-                <a href="index.html" style="color: var(--text-muted); text-decoration: none;">Home</a>
-                <a href="index.html#faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="disclaimer.html">Imprint</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lunaweb GmbH. Made in Munich, Germany.</p>
             </div>
         </div>
     </footer>
@@ -134,15 +240,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img id="modal-image" class="modal-image" src="" alt="WEBP to PNG converted image preview">
+                <img id="modal-image" class="modal-image" src="" alt="Preview">
             </div>
             <div class="modal-footer">
                 <a id="modal-download" class="btn-primary" href="#" download>Download Image</a>
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script type="module" src="js/app.js"></script>
+    <script src="js/ui.js"></script>
 </body>
 
 </html>

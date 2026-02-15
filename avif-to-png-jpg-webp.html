@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reduce Image Size Online | Free Image Compressor</title>
+    <title>AVIF Converter | Convert AVIF to JPG, PNG, WebP</title>
     <meta name="description"
-        content="Reduce image size online for free. Compress JPG, PNG, WebP images to save space. Fast, secure, and easy to use.">
+        content="Convert AVIF images to PNG, JPG, or WebP instantly. Secure, privacy-first, and high quality.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -99,14 +99,14 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <h1>Reduce Image Size Free</h1>
-                    <p>Compress unlimited images for free. Works with all major formats. Privacy-focused and fast.</p>
-                    <a href="#upload-area" class="btn-primary">Reduce Size Now</a>
+                    <h1>Convert AVIF Images</h1>
+                    <p>Convert AVIF to PNG, JPG, or WebP. High quality, privacy-first, and free.</p>
+                    <a href="#upload-area" class="btn-primary">Convert Now</a>
                 </div>
                 <!-- Optional: Image -->
                 <div class="hero-image">
                     <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Image Size Reducer">
+                        alt="Convert AVIF">
                 </div>
             </div>
         </section>
@@ -116,34 +116,41 @@
             <div class="container">
                 <div class="tool-wrapper">
                     <div id="upload-area" class="upload-area">
-                        <span class="upload-icon">📉</span>
-                        <h3>Drag & Drop Images Here</h3>
+                        <span class="upload-icon">🚀</span>
+                        <h3>Drag & Drop AVIF Images Here</h3>
                         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">or click to browse files</p>
-                        <button class="btn-primary">Select Images</button>
-                        <input type="file" id="file-input" multiple accept="image/*" hidden>
+                        <button class="btn-primary">Select AVIF Files</button>
+                        <input type="file" id="file-input" multiple
+                            accept="image/avif, image/webp, image/png, image/jpeg" hidden>
                     </div>
 
                     <div id="file-list" class="file-list hidden"></div>
 
                     <div id="controls" class="controls hidden">
-                        <!-- Forced Format Input: Value 'original' to keep original format -->
-                        <input type="hidden" id="forced-format" value="original">
+                        <div class="control-group">
+                            <label for="format-select">Output Format</label>
+                            <select id="format-select">
+                                <option value="image/webp" selected>WebP</option>
+                                <option value="image/jpeg">JPEG</option>
+                                <option value="image/png">PNG</option>
+                            </select>
+                        </div>
 
                         <div class="control-group" style="flex: 1; min-width: 250px;">
                             <div class="flex justify-between">
-                                <label for="quality-slider">Compression Level</label>
-                                <span id="quality-value">75</span>
+                                <label for="quality-slider">Quality</label>
+                                <span id="quality-value">80</span>
                             </div>
-                            <input type="range" id="quality-slider" min="1" max="100" value="75">
+                            <input type="range" id="quality-slider" min="1" max="100" value="80">
                             <p id="estimated-size"
-                                style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Lower quality
-                                = Smaller file size</p>
+                                style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Estimated
+                                quality: 80%</p>
                         </div>
                     </div>
 
                     <div id="action-area" class="controls hidden" style="border-top: none; justify-content: flex-end;">
                         <button id="clear-all" class="btn-secondary">Clear All</button>
-                        <button id="process-all" class="btn-primary">Reduce Size</button>
+                        <button id="process-all" class="btn-primary">Convert All</button>
                         <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
                     </div>
                 </div>
@@ -155,14 +162,14 @@
             <div class="container">
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon">📂</span>
-                        <h3>All Formats</h3>
-                        <p>Works with JPG, PNG, WebP, and more.</p>
+                        <span class="feature-icon">⚡</span>
+                        <h3>Fast Conversion</h3>
+                        <p>Instantly convert AVIF files in your browser.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🛡️</span>
-                        <h3>Private</h3>
-                        <p>No data leaves your computer.</p>
+                        <span class="feature-icon">🔒</span>
+                        <h3>Secure</h3>
+                        <p>No server uploads. Your privacy is guaranteed.</p>
                     </div>
                 </div>
             </div>
@@ -176,11 +183,11 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        Will my image look bad?
+                        What is AVIF?
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Not at all. We use smart compression to reduce unseen data while keeping visual quality high.
+                        AVIF is a modern image format that offers superior compression and quality.
                     </div>
                 </div>
             </div>

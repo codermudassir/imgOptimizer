@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reduce Image Size Online | Free Image Compressor</title>
+    <title>AVIF Converter - Professional Image Tool</title>
     <meta name="description"
-        content="Reduce image size online for free. Compress JPG, PNG, WebP images to save space. Fast, secure, and easy to use.">
+        content="Convert AVIF images to PNG, JPG, WebP. Privacy-first, browser-based, high quality.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -25,6 +25,7 @@
                 ImgTool
             </a>
 
+            <!-- Desktop Nav -->
             <nav class="desktop-nav">
                 <div class="mega-menu-trigger">
                     <span class="nav-link">Tools ▾</span>
@@ -57,6 +58,7 @@
                 </div>
                 <a href="index.html#features" class="nav-link">Features</a>
                 <a href="index.html#faq" class="nav-link">FAQ</a>
+                <!-- Hidden Theme Toggle for JS compatibility -->
                 <button id="theme-toggle" class="btn-secondary hidden" aria-label="Toggle Dark Mode">
                     <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -81,6 +83,7 @@
         </div>
     </header>
 
+    <!-- Mobile Sidebar -->
     <div class="sidebar-overlay"></div>
     <div class="mobile-sidebar">
         <button class="close-sidebar" style="align-self: flex-end; font-size: 1.5rem; padding: 0.5rem;">&times;</button>
@@ -99,14 +102,14 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <h1>Reduce Image Size Free</h1>
-                    <p>Compress unlimited images for free. Works with all major formats. Privacy-focused and fast.</p>
-                    <a href="#upload-area" class="btn-primary">Reduce Size Now</a>
+                    <h1>Professional AVIF Converter</h1>
+                    <p>Convert AVIF images to PNG, JPG, or WebP instantly. Secure, privacy-first, and 100% browser-based
+                        processing.</p>
+                    <a href="#upload-area" class="btn-primary">Convert Now</a>
                 </div>
-                <!-- Optional: Image -->
                 <div class="hero-image">
                     <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Image Size Reducer">
+                        alt="Image Processing">
                 </div>
             </div>
         </section>
@@ -115,78 +118,133 @@
         <section class="tool-section" id="tool">
             <div class="container">
                 <div class="tool-wrapper">
+                    <!-- Upload Area -->
                     <div id="upload-area" class="upload-area">
-                        <span class="upload-icon">📉</span>
+                        <span class="upload-icon">☁️</span>
                         <h3>Drag & Drop Images Here</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">or click to browse files</p>
+                        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Supports AVIF, PNG, JPG, WebP</p>
                         <button class="btn-primary">Select Images</button>
-                        <input type="file" id="file-input" multiple accept="image/*" hidden>
+                        <input type="file" id="file-input" multiple
+                            accept="image/avif, image/png, image/jpeg, image/webp" hidden>
                     </div>
 
+                    <!-- File List -->
                     <div id="file-list" class="file-list hidden"></div>
 
+                    <!-- Controls -->
                     <div id="controls" class="controls hidden">
-                        <!-- Forced Format Input: Value 'original' to keep original format -->
-                        <input type="hidden" id="forced-format" value="original">
+                        <div class="control-group">
+                            <label for="format-select">Output Format</label>
+                            <select id="format-select">
+                                <option value="image/avif" selected>AVIF</option>
+                                <option value="image/webp">WebP</option>
+                                <option value="image/png">PNG</option>
+                                <option value="image/jpeg">JPEG</option>
+                            </select>
+                        </div>
 
                         <div class="control-group" style="flex: 1; min-width: 250px;">
                             <div class="flex justify-between">
-                                <label for="quality-slider">Compression Level</label>
-                                <span id="quality-value">75</span>
+                                <label for="quality-slider">Quality</label>
+                                <span id="quality-value">80</span>
                             </div>
-                            <input type="range" id="quality-slider" min="1" max="100" value="75">
+                            <input type="range" id="quality-slider" min="1" max="100" value="80">
+                            <!-- New Estimation UI -->
                             <p id="estimated-size"
-                                style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Lower quality
-                                = Smaller file size</p>
+                                style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">Estimated
+                                quality: 80%</p>
                         </div>
                     </div>
 
+                    <!-- Actions -->
                     <div id="action-area" class="controls hidden" style="border-top: none; justify-content: flex-end;">
                         <button id="clear-all" class="btn-secondary">Clear All</button>
-                        <button id="process-all" class="btn-primary">Reduce Size</button>
+                        <button id="process-all" class="btn-primary">Convert All</button>
                         <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="container">
+                <h2>Why Use Our Tool?</h2>
+                <p>We prioritize your privacy. All conversions happen locally in your browser, meaning your images are
+                    never uploaded to a server. Fast, secure, and free.</p>
+            </div>
+        </section>
+
         <!-- Features Section -->
-        <section class="features-section">
+        <section class="features-section" id="features">
             <div class="container">
                 <div class="features-grid">
                     <div class="feature-card">
-                        <span class="feature-icon">📂</span>
-                        <h3>All Formats</h3>
-                        <p>Works with JPG, PNG, WebP, and more.</p>
+                        <span class="feature-icon">⚡</span>
+                        <h3>Fast Conversion</h3>
+                        <p>Powered by WebAssembly for near-native performance right in your browser.</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">🛡️</span>
-                        <h3>Private</h3>
-                        <p>No data leaves your computer.</p>
+                        <span class="feature-icon">🔒</span>
+                        <h3>Privacy First</h3>
+                        <p>No server uploads. Your files stay on your device, always.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">✨</span>
+                        <h3>High Quality</h3>
+                        <p>Advanced compression algorithms retain visual quality while reducing file size.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">♾️</span>
+                        <h3>No Limits</h3>
+                        <p>Convert as many files as you want without restrictions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section">
+        <section class="faq-section" id="faq">
             <div class="container faq-container">
                 <div style="text-align: center; margin-bottom: 3rem;">
                     <h2>Frequently Asked Questions</h2>
                 </div>
+
                 <div class="faq-item">
                     <div class="faq-question">
-                        Will my image look bad?
+                        Is it free?
                         <span class="faq-toggle-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        Not at all. We use smart compression to reduce unseen data while keeping visual quality high.
+                        Yes, this tool is 100% free to use for unlimited conversions.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are my images uploaded?
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No. All processing is done locally in your browser using JavaScript and WebAssembly. Your images
+                        never leave your device.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What formats are supported?
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We support input and output for AVIF, WebP, PNG, and JPEG.
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -220,7 +278,7 @@
         </div>
     </footer>
 
-    <!-- Preview Modal -->
+    <!-- Preview Modal (Preserved ID structure) -->
     <div id="preview-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -234,7 +292,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <img id="modal-image" class="modal-image" src="" alt="Preview">
+                <img id="modal-image" class="modal-image" src="" alt="Image preview">
             </div>
             <div class="modal-footer">
                 <a id="modal-download" class="btn-primary" href="#" download>Download Image</a>
@@ -243,7 +301,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/newfile.js"></script>
     <script src="js/ui.js"></script>
 </body>
 
