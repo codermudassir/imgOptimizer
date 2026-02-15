@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compression Tool - Reduce Image Size Online Free</title>
+    <meta name="description"
+        content="Reduce image size instantly. Compress PNG, JPG, and WEBP to save space and improve website speed. Free online image compression tool.">
+    <meta name="keywords" content="image compression, reduce image size, compress images online, free image compressor, optimize images for web">
+    <link rel="canonical" href="https://yourdomain.com/image-size-reducer.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Image Compression Tool - Reduce Image Size Online Free">
+    <meta property="og:description" content="Reduce image size instantly. Compress PNG, JPG, and WEBP to save space and improve website speed. Free and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/image-size-reducer.html">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                ImgTool
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="png-to-webp.html">PNG to WEBP Converter</a></li>
+                    <li><a href="jpg-to-webp.html">JPG to WEBP Converter</a></li>
+                    <li><a href="webp-to-png.html">WEBP to PNG Converter</a></li>
+                    <li><a href="compress-png.html">Compress PNG</a></li>
+                    <li><a href="compress-jpg.html">Compress JPG</a></li>
+                    <li><a href="resize-image.html">Resize Image</a></li>
+                    <li><a href="image-size-reducer.html" class="active" style="color:var(--primary-color);">Image Compression Tool</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="btn-secondary" aria-label="Toggle Dark Mode">
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="sun-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Image Compression Tool</h1>
+            <p>Reduce image size instantly. Compress PNG, JPG, and WEBP to save space and improve website speed. For best results, use images under 5MB. Free and works in your browser.</p>
+        </section>
+        <section class="container">
+            <div class="tool-container">
+                <div id="upload-area" class="upload-area">
+                    <span class="upload-icon">⚡</span>
+                    <h3>Drag & Drop Images</h3>
+                    <button class="btn-primary">Select Images</button>
+                    <input type="file" id="file-input" multiple accept="image/*" hidden>
+                </div>
+                <div id="file-list" class="file-list hidden"></div>
+                <div id="controls" class="controls hidden">
+                    <div class="control-group">
+                        <label for="format-select">Output Format</label>
+                        <select id="format-select">
+                            <option value="image/webp" selected>WebP (Smallest File Size)</option>
+                            <option value="image/jpeg">JPEG</option>
+                            <option value="image/png">PNG</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="quality-slider">Compression: <span id="quality-value">80</span>%</label>
+                        <input type="range" id="quality-slider" min="1" max="100" value="80">
+                    </div>
+                </div>
+                <div id="action-area" class="controls hidden"
+                    style="border-top:none; padding-top:0; justify-content:flex-end;">
+                    <button id="process-all" class="btn-primary">Reduce Size</button>
+                    <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
+                    <button id="clear-all" class="btn-secondary">Clear All</button>
+                </div>
+            </div>
+        </section>
+        <section id="content" class="content-section">
+            <h2>How to Reduce Image Size</h2>
+            <p>Upload your images, choose output format (WEBP gives the smallest file size), set the compression level, and download. All processing happens in your browser. No sign-up required.</p>
+            <h3>Tips for Best Results</h3>
+            <p>For best results, compress images under 5MB. This reduces loading time on your website. Use WEBP for the smallest files. Need to convert format? Try our <a href="png-to-webp.html">PNG to WEBP</a> or <a href="jpg-to-webp.html">JPG to WEBP</a> converters, or <a href="index.html">all image tools</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ImgTool. All rights reserved.</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none;">Home</a>
+                <a href="index.html#faq" style="color: var(--text-muted); text-decoration: none;">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Image Preview</h3>
+                <button id="close-modal" class="btn-secondary" style="border:none; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" class="modal-image" src="" alt="Compressed image preview">
+            </div>
+            <div class="modal-footer">
+                <a id="modal-download" class="btn-primary" href="#" download>Download Image</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

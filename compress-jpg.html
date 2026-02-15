@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress JPG - Free JPG Compression Tool Online</title>
+    <meta name="description"
+        content="Compress JPG images online for free. Reduce file size without visible quality loss. Fast, secure image compression for photos.">
+    <meta name="keywords" content="compress jpg, jpg compressor, reduce jpeg file size, free image compression, optimize images for web">
+    <link rel="canonical" href="https://yourdomain.com/compress-jpg.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Compress JPG - Free JPG Compression Tool Online">
+    <meta property="og:description" content="Compress JPG images online for free. Reduce file size without visible quality loss. Fast and secure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/compress-jpg.html">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                ImgTool
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="png-to-webp.html">PNG to WEBP Converter</a></li>
+                    <li><a href="jpg-to-webp.html">JPG to WEBP Converter</a></li>
+                    <li><a href="webp-to-png.html">WEBP to PNG Converter</a></li>
+                    <li><a href="compress-png.html">Compress PNG</a></li>
+                    <li><a href="compress-jpg.html" class="active" style="color:var(--primary-color);">Compress JPG</a></li>
+                    <li><a href="resize-image.html">Resize Image</a></li>
+                    <li><a href="image-size-reducer.html">Image Compression Tool</a></li>
+                    <li><a href="index.html#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" class="btn-secondary" aria-label="Toggle Dark Mode">
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="sun-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Compress JPG Images</h1>
+            <p>Compress JPG and JPEG images online for free. Reduce file size without visible quality loss. For best results, keep images under 5MB. Processing happens in your browser.</p>
+        </section>
+        <section class="container">
+            <div class="tool-container">
+                <div id="upload-area" class="upload-area">
+                    <span class="upload-icon">📉</span>
+                    <h3>Drag & Drop JPGs to Compress</h3>
+                    <button class="btn-primary">Select JPG Files</button>
+                    <input type="file" id="file-input" multiple accept="image/jpeg, image/jpg" hidden>
+                </div>
+                <div id="file-list" class="file-list hidden"></div>
+                <div id="controls" class="controls hidden">
+                    <div class="control-group">
+                        <label for="format-select">Output Format</label>
+                        <select id="format-select">
+                            <option value="image/jpeg" selected>JPEG (Compressed)</option>
+                            <option value="image/webp">WebP (Better Compression)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="quality-slider">Quality: <span id="quality-value">80</span>%</label>
+                        <input type="range" id="quality-slider" min="1" max="100" value="80">
+                    </div>
+                </div>
+                <div id="action-area" class="controls hidden"
+                    style="border-top:none; padding-top:0; justify-content:flex-end;">
+                    <button id="process-all" class="btn-primary">Compress JPGs</button>
+                    <button id="download-all" class="btn-primary hidden">Download All (ZIP)</button>
+                    <button id="clear-all" class="btn-secondary">Clear All</button>
+                </div>
+            </div>
+        </section>
+        <section id="content" class="content-section">
+            <h2>How to Compress JPG Files</h2>
+            <p>Upload your JPG or JPEG photos, set the quality level (80–90% keeps quality high while reducing size), and download. All compression happens in your browser—nothing is uploaded to a server.</p>
+            <h3>Why Compress JPG?</h3>
+            <p>Smaller images load faster on websites and use less storage. Our tool keeps visual quality high while reducing file size. For best results, compress images under 5MB to improve loading time.</p>
+            <p>Need to convert format? Use our <a href="jpg-to-webp.html">JPG to WEBP converter</a> or <a href="index.html">image tools</a>.</p>
+        </section>
+    </main>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Image Preview</h3>
+                <button id="close-modal" class="btn-secondary" style="border:none; padding: 0.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" class="modal-image" src="" alt="Compressed JPG image preview">
+            </div>
+            <div class="modal-footer">
+                <a id="modal-download" class="btn-primary" href="#" download>Download Image</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
