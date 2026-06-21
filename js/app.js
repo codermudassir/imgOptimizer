@@ -82,6 +82,7 @@ function setupEventListeners() {
     fileInput.addEventListener('change', handleFileSelect);
 
     processAllBtn.addEventListener('click', processAllFiles);
+    downloadAllBtn.addEventListener('click', downloadAllFiles);
     clearAllBtn.addEventListener('click', clearAll);
     themeToggle.addEventListener('click', toggleTheme);
 
@@ -267,6 +268,7 @@ function handleWorkerMessage(e) {
 
     actions.children[0].onclick = () => showModal(blob, name);
     actions.children[2].onclick = () => removeFile(id);
+    updateDownloadAllButton();
 }
 
 /* =========================
@@ -283,13 +285,18 @@ function updateStatus(id, text, color) {
 function removeFile(id) {
     filesStore.delete(id);
     document.getElementById(`item-${id}`)?.remove();
+
+    updateDownloadAllButton();
 }
 
 function clearAll() {
     filesStore.clear();
     fileList.innerHTML = '';
+
     fileList.classList.add('hidden');
     actionArea.classList.add('hidden');
+
+    downloadAllBtn.classList.add('hidden');
 }
 
 function formatBytes(bytes) {
@@ -317,9 +324,66 @@ function toggleTheme() {
     localStorage.setItem('theme', t);
 }
 
+function updateDownloadAllButton() {
+
+    const convertedFiles = [...filesStore.values()]
+        .filter(file => file.resultBlob);
+
+    if (convertedFiles.length) {
+        downloadAllBtn.classList.remove('hidden');
+    } else {
+        downloadAllBtn.classList.add('hidden');
+    }
+}
 function setupFAQ() {
     document.querySelectorAll('.faq-question').forEach(q =>
         q.onclick = () =>
             q.nextElementSibling.classList.toggle('active')
     );
+}
+
+async function downloadAllFiles() {
+
+    const zip = new JSZip();
+
+    let hasFiles = false;
+
+    filesStore.forEach(data => {
+
+        if (!data.resultBlob) return;
+
+        hasFiles = true;
+
+        const ext = data.format.split('/')[1];
+
+        const filename =
+            `optimized_${data.file.name.split('.')[0]}.${ext}`;
+
+        zip.file(filename, data.resultBlob);
+
+    });
+
+    if (!hasFiles) {
+        alert('No converted files available');
+        return;
+    }
+
+    downloadAllBtn.disabled = true;
+    downloadAllBtn.textContent = 'Creating ZIP...';
+
+    const content = await zip.generateAsync({
+        type: 'blob'
+    });
+
+    const url = URL.createObjectURL(content);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'converted-images.zip';
+    a.click();
+
+    URL.revokeObjectURL(url);
+
+    downloadAllBtn.disabled = false;
+    downloadAllBtn.textContent = 'Download All (ZIP)';
 }
