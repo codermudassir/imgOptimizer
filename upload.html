@@ -232,7 +232,7 @@
 
               <div class="control-group control-group--grow" id="quality-control-group">
                 <div class="flex justify-between">
-                  <label for="quality-slider">Target size
+                  <label for="quality-slider">Set Target size Of IMG Quality 
                     <span class="label-hint">% of original</span></label>
                   <span class="mono-chip" id="quality-value">80%</span>
                 </div>
@@ -405,6 +405,30 @@
         </div>
       </div>
     </section>
+    <div class="custom-modal" id="custom-modal">
+    <div class="custom-modal-backdrop"></div>
+
+    <div class="custom-modal-box">
+        <div class="custom-modal-icon">
+            ⚠️
+        </div>
+
+        <h3 id="custom-modal-title">
+            Upload Limit Reached
+        </h3>
+
+        <p id="custom-modal-message">
+            You can upload a maximum of 20 images at a time.
+        </p>
+
+        <button
+            class="btn-primary"
+            id="custom-modal-close"
+            type="button">
+            Got it
+        </button>
+    </div>
+</div>
   </main>
 
   <!-- Footer -->
@@ -479,7 +503,7 @@
 
           <div class="control-group" id="modal-quality-group">
             <div class="flex justify-between">
-              <label for="modal-quality-slider">Target size
+              <label for="modal-quality-slider">Set Target size Of IMG Quality 
                 <span class="label-hint">% of original</span></label>
               <span class="mono-chip" id="modal-quality-value">80%</span>
             </div>

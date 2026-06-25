@@ -356,6 +356,28 @@ document.addEventListener('drop', e => {
     }
 });
 
+
+const modalCloseBtn =
+document.getElementById('custom-modal-close');
+
+modalCloseBtn?.addEventListener(
+    'click',
+    hideCustomModal
+);
+
+document
+.getElementById('custom-modal')
+?.addEventListener('click', e => {
+
+    if (
+        e.target.classList.contains(
+            'custom-modal-backdrop'
+        )
+    ) {
+        hideCustomModal();
+    }
+});
+
 }
 
 /* =========================
@@ -402,20 +424,24 @@ function handleDrop(e) {
 
 function addFiles(files) {
     
-const MAX_FILES = 20;
+const MAX_FILES = 30;
 
 const currentCount = filesStore.size;
 const availableSlots = MAX_FILES - currentCount;
 
 if (availableSlots <= 0) {
-    alert(`Maximum ${MAX_FILES} images allowed.`);
+    showCustomModal(
+    'Upload Limit Reached',
+    `You can upload a maximum of ${MAX_FILES} images at a time.`
+);
     return;
 }
 
 if (files.length > availableSlots) {
-    alert(
-        `You can upload only ${availableSlots} more image(s). Maximum ${MAX_FILES} images allowed.`
-    );
+   showCustomModal(
+    'Upload Limit Reached',
+    `Only ${availableSlots} upload slot(s) remaining. Maximum ${MAX_FILES} images are allowed per batch.`
+);
 
     files = files.slice(0, availableSlots);
 }
@@ -644,6 +670,27 @@ updateProcessingUI();
 /* =========================
    HELPERS
 ========================= */
+function showCustomModal(title, message) {
+
+    const modal = document.getElementById('custom-modal');
+
+    document.getElementById(
+        'custom-modal-title'
+    ).textContent = title;
+
+    document.getElementById(
+        'custom-modal-message'
+    ).textContent = message;
+
+    modal.classList.add('active');
+}
+
+function hideCustomModal() {
+
+    document
+        .getElementById('custom-modal')
+        .classList.remove('active');
+}
 function updateProcessingUI() {
 
     const isProcessing = activeConversions > 0;
