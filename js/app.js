@@ -58,6 +58,7 @@ const modalPresetChips = document.querySelectorAll('[data-modal-preset]');
 let filesStore = new Map();
 let worker;
 let activeSettingsId = null; // which card the settings modal is currently editing
+let activeConversions = 0;
 
 /* =========================
    INIT
@@ -315,6 +316,8 @@ function setupEventListeners() {
     applyBulkQualityToAll(+e.target.value);
     positionBubble(qualitySlider, qualityBubble, e.target.value); // ADD
 
+
+
     
 });
 
@@ -334,6 +337,24 @@ presetChips.forEach(chip => {
         applyBulkFormatToAll(e.target.value);
     });
 
+
+document.addEventListener('dragover', e => {
+    e.preventDefault();
+});
+
+document.addEventListener('drop', e => {
+    e.preventDefault();
+
+    const files = Array.from(
+        e.dataTransfer.files
+    ).filter(file =>
+        file.type.startsWith('image/')
+    );
+
+    if (files.length) {
+        addFiles(files);
+    }
+});
 
 }
 
@@ -374,11 +395,30 @@ function handleFileSelect(e) {
 
 function handleDrop(e) {
     e.preventDefault();
+        e.stopPropagation(); // ADD THIS
     uploadArea.classList.remove('drag-over');
     addFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
 }
 
 function addFiles(files) {
+    
+const MAX_FILES = 20;
+
+const currentCount = filesStore.size;
+const availableSlots = MAX_FILES - currentCount;
+
+if (availableSlots <= 0) {
+    alert(`Maximum ${MAX_FILES} images allowed.`);
+    return;
+}
+
+if (files.length > availableSlots) {
+    alert(
+        `You can upload only ${availableSlots} more image(s). Maximum ${MAX_FILES} images allowed.`
+    );
+
+    files = files.slice(0, availableSlots);
+}
     if (!files.length) return;
 
     // The dropzone's job is done — the bulk control bar takes its place,
@@ -407,6 +447,7 @@ function addFiles(files) {
     updateBulkCount();
 }
 
+
 /* =========================
    RENDER FILE CARD
 ========================= */
@@ -430,6 +471,12 @@ function renderFileItem(id, file) {
                 </button>
             </div>
         </div>
+<div class="card-processing-overlay" id="overlay-${id}">
+    <div class="card-processing-content">
+        <span class="spinner large"></span>
+        <p>Converting...</p>
+    </div>
+</div>
 
         <div class="file-body">
             <p class="file-name" title="${escapeHtml(file.name)}">${escapeHtml(file.name)}</p>
@@ -494,9 +541,20 @@ function processFile(id) {
     if (!data) return;
 
     updateStatus(id, 'Converting…', 'processing');
+    const actions = document.getElementById(`actions-${id}`);
+
+if (actions) {
+    actions.innerHTML = `
+        <button class="btn-secondary" disabled>
+         <span class="spinner"></span>
+            Converting...
+        </button>
+    `;
+}
     document.getElementById(`item-${id}`)?.classList.add('is-processing');
     document.getElementById(`item-${id}`)?.classList.remove('is-error');
-
+    activeConversions++;
+updateProcessingUI();
     worker.postMessage({
         id,
         file: data.file,
@@ -518,6 +576,13 @@ function processAllFiles() {
 ========================= */
 function handleWorkerMessage(e) {
     const { id, success, blob, error } = e.data;
+    activeConversions--;
+
+if (activeConversions < 0) {
+    activeConversions = 0;
+}
+
+updateProcessingUI();
     const data = filesStore.get(id);
     if (!data) return;
 
@@ -579,6 +644,28 @@ function handleWorkerMessage(e) {
 /* =========================
    HELPERS
 ========================= */
+function updateProcessingUI() {
+
+    const isProcessing = activeConversions > 0;
+
+    processAllBtn.disabled = isProcessing;
+    clearAllBtn.disabled = isProcessing;
+    addMoreBtn.disabled = isProcessing;
+
+    if (isProcessing) {
+        processAllBtn.innerHTML = `
+            <span class="spinner"></span>
+            Processing...
+        `;
+    } else {
+        processAllBtn.innerHTML = 'Convert all';
+    }
+
+    document.querySelectorAll('.file-actions button').forEach(btn => {
+        btn.disabled = isProcessing;
+    });
+
+}
 function updateStatus(id, text, state) {
     const el = document.getElementById(`status-${id}`);
     if (!el) return;

@@ -1055,3 +1055,68 @@ footer { background-color: var(--ink-950); color: #b8b3a8; padding: 4rem 0 2rem;
 .range-wrap input[type="range"]:disabled + .range-ticks {
   opacity: 0.5;
 }
+
+.spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: spin .8s linear infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.file-card{
+    position:relative;
+}
+
+.card-processing-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:20;
+    border-radius:16px;
+}
+
+.file-card.is-processing .card-processing-overlay{
+    display:flex;
+}
+
+.card-processing-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+}
+
+.card-processing-content p{
+    margin:0;
+    font-weight:600;
+}
+
+.spinner.large{
+    width:42px;
+    height:42px;
+    border:4px solid rgba(0,0,0,.1);
+    border-top-color:currentColor;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
