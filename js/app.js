@@ -62,21 +62,75 @@ let activeSettingsId = null; // which card the settings modal is currently editi
 /* =========================
    INIT
 ========================= */
+// document.addEventListener('DOMContentLoaded', () => {
+//     const currentPage =
+//     document.body.dataset.page;
+//     initWorker();
+//     setupEventListeners();
+//     setupTheme();
+//     setupFAQ();
+//     setupModals();
+//     setupMobileSidebar();
+//     syncQualityControlVisibility(formatSelect.value, qualityControlGroup, qualitySlider);
+//     syncPresetActiveState(presetChips, +qualitySlider.value);
+//     buildTicks(qualityTicks, qualitySlider);
+//     buildTicks(modalQualityTicks, modalQualitySlider);
+//     positionBubble(qualitySlider, qualityBubble, qualitySlider.value);
+//     positionBubble(modalQualitySlider, modalQualityBubble, modalQualitySlider.value);
+//     loadPendingFiles();
+// });
+
 document.addEventListener('DOMContentLoaded', () => {
-    initWorker();
+
+    const currentPage = document.body.dataset.page;
+
     setupEventListeners();
     setupTheme();
     setupFAQ();
-    setupModals();
     setupMobileSidebar();
-    syncQualityControlVisibility(formatSelect.value, qualityControlGroup, qualitySlider);
-    syncPresetActiveState(presetChips, +qualitySlider.value);
-    buildTicks(qualityTicks, qualitySlider);
-    buildTicks(modalQualityTicks, modalQualitySlider);
-    positionBubble(qualitySlider, qualityBubble, qualitySlider.value);
-    positionBubble(modalQualitySlider, modalQualityBubble, modalQualitySlider.value);
-});
 
+    if (currentPage === 'upload') {
+
+        initWorker();
+        setupModals();
+
+        syncQualityControlVisibility(
+            formatSelect.value,
+            qualityControlGroup,
+            qualitySlider
+        );
+
+        syncPresetActiveState(
+            presetChips,
+            +qualitySlider.value
+        );
+
+        buildTicks(
+            qualityTicks,
+            qualitySlider
+        );
+
+        buildTicks(
+            modalQualityTicks,
+            modalQualitySlider
+        );
+
+        positionBubble(
+            qualitySlider,
+            qualityBubble,
+            qualitySlider.value
+        );
+
+        positionBubble(
+            modalQualitySlider,
+            modalQualityBubble,
+            modalQualitySlider.value
+        );
+
+        // loadPendingFiles();
+    }
+
+});
 function initWorker() {
     worker = new Worker('workers/processor.worker.js');
     worker.onmessage = handleWorkerMessage;
@@ -237,29 +291,31 @@ function applySettingsAndConvert() {
    EVENT LISTENERS
 ========================= */
 function setupEventListeners() {
-    uploadArea.addEventListener('click', () => fileInput.click());
-    browseBtn.addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
-    addMoreBtn.addEventListener('click', () => fileInput.click());
+    uploadArea?.addEventListener('click', () => fileInput.click());
+    browseBtn?.addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
+    addMoreBtn?.addEventListener('click', () => fileInput.click());
 
-    uploadArea.addEventListener('dragover', e => {
+    uploadArea?.addEventListener('dragover', e => {
         e.preventDefault();
         uploadArea.classList.add('drag-over');
     });
-    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
-    uploadArea.addEventListener('drop', handleDrop);
+    uploadArea?.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea?.addEventListener('drop', handleDrop);
 
-    fileInput.addEventListener('change', handleFileSelect);
+    fileInput?.addEventListener('change', handleFileSelect);
 
-    processAllBtn.addEventListener('click', processAllFiles);
-    downloadAllBtn.addEventListener('click', downloadAllFiles);
-    clearAllBtn.addEventListener('click', clearAll);
-    themeToggle.addEventListener('click', toggleTheme);
+    processAllBtn?.addEventListener('click', processAllFiles);
+    downloadAllBtn?.addEventListener('click', downloadAllFiles);
+    clearAllBtn?.addEventListener('click', clearAll);
+    themeToggle?.addEventListener('click', toggleTheme);
 
-   qualitySlider.addEventListener('input', e => {
+   qualitySlider?.addEventListener('input', e => {
     qualityValue.textContent = `${e.target.value}%`;
     syncPresetActiveState(presetChips, +e.target.value);
     applyBulkQualityToAll(+e.target.value);
     positionBubble(qualitySlider, qualityBubble, e.target.value); // ADD
+
+    
 });
 
 presetChips.forEach(chip => {
@@ -273,10 +329,12 @@ presetChips.forEach(chip => {
     });
 });
 
-    formatSelect.addEventListener('change', e => {
+    formatSelect?.addEventListener('change', e => {
         syncQualityControlVisibility(e.target.value, qualityControlGroup, qualitySlider);
         applyBulkFormatToAll(e.target.value);
     });
+
+
 }
 
 /* =========================
@@ -674,3 +732,4 @@ async function downloadAllFiles() {
     downloadAllBtn.disabled = false;
     downloadAllBtn.innerHTML = originalLabel;
 }
+

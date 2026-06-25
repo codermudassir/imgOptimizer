@@ -76,7 +76,7 @@
     </script>
   </head>
 
-  <body data-page="home">
+  <body data-page="upload">
     <!-- Header -->
     <header>
       <div class="container header-inner">
@@ -240,68 +240,145 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero">
+    
+      <!-- Tool Section -->
+      <section class="tool-section" id="tool">
         <div class="container">
-          <div class="hero-grid">
-            <!-- LEFT -->
-            <div class="hero-left">
-              <div class="hero-badges">
-                <span>AI Powered</span>
-                <span>Fast Processing</span>
-                <span>No Quality Loss</span>
-              </div>
-
-              <h1>
-                Optimize Images
-                <span>In Seconds</span>
-              </h1>
-
-              <p>
-                Compress, convert and resize JPG, PNG, WEBP and AVIF images
-                instantly. Reduce file size while maintaining stunning visual
-                quality for websites, blogs, eCommerce stores and social media.
+          <div class="tool-wrapper">
+            <!-- Upload Area -->
+            <div id="upload-area" class="upload-area">
+              <span class="upload-icon" aria-hidden="true">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 9 12 4 17 9"></polyline>
+                  <line x1="12" y1="4" x2="12" y2="16"></line>
+                </svg>
+              </span>
+              <h3>Drag images here, or click to browse</h3>
+              <p class="upload-sub">
+                PNG · JPG · WebP · AVIF · GIF — processed locally, one by one or
+                all at once
               </p>
-
-          
-
-              
-              
+              <button class="btn-primary" type="button" id="browse-btn">
+                Select files
+              </button>
+              <input
+                type="file"
+                id="file-input"
+                multiple
+                accept="image/png, image/jpeg, image/webp, image/gif, image/avif"
+                hidden
+              />
             </div>
 
-            <!-- RIGHT -->
-            <a href="upload.html" class="hero-right">
-              <div class="hero-upload-card" id="hero-upload-box">
-                <div class="hero-upload-icon">📁</div>
+            <!-- Sticky Bulk Control Bar (replaces uploader once files exist) -->
+            <div id="bulk-bar" class="bulk-bar hidden">
+              <div class="bulk-bar-row">
+                <div class="bulk-bar-info">
+                  <span class="bulk-count" id="bulk-count">0 images</span>
+                  <button class="text-btn" id="add-more-btn" type="button">
+                    + Add more
+                  </button>
+                </div>
+                <div class="bulk-bar-actions">
+                  <button id="clear-all" class="btn-ghost" type="button">
+                    Clear all
+                  </button>
+                  <button id="process-all" class="btn-secondary" type="button">
+                    Convert all
+                  </button>
+                  <button
+                    id="download-all"
+                    class="btn-primary hidden"
+                    type="button"
+                  >
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="7 11 12 16 17 11"></polyline>
+                      <line x1="12" y1="16" x2="12" y2="3"></line>
+                    </svg>
+                    Download all
+                  </button>
+                </div>
+              </div>
 
-                <h3>Drop Images Here</h3>
-
-                <p>Drag & drop your files or click to browse</p>
-
-                <input
-                  type="file"
-                  id="hero-file-input"
-                  multiple
-                  accept="image/*"
-                  hidden
-                />
-
-                <button
-                  type="button"
-                  class="btn-primary btn-lg"
-                  id="hero-upload-btn"
-                >
-                  Upload Images
-                </button>
-                <div class="hero-formats">
-                  <span>JPG</span>
-                  <span>PNG</span>
-                  <span>WEBP</span>
-                  <span>AVIF</span>
+              <div class="bulk-bar-row bulk-bar-config">
+                <div class="control-group">
+                  <label for="format-select"
+                    >Output format
+                    <span class="label-hint">applies to all</span></label
+                  >
+                  <select id="format-select">
+                    <option value="image/webp" selected>WebP</option>
+                    <option value="image/jpeg">JPEG</option>
+                    <option value="image/png">PNG</option>
+                  </select>
                 </div>
 
-                <small> Max Upload: 50MB • Batch Processing Supported </small>
+                <div
+                  class="control-group control-group--grow"
+                  id="quality-control-group"
+                >
+                  <div class="flex justify-between">
+                    <label for="quality-slider"
+                      >Target size
+                      <span class="label-hint">% of original</span></label
+                    >
+                    <span class="mono-chip" id="quality-value">80%</span>
+                  </div>
+                  <div class="range-wrap">
+                    <div class="range-ticks" id="quality-ticks"></div>
+                    <div class="range-value-bubble" id="quality-bubble">
+                      <span>80%</span>
+                    </div>
+                    <input
+                      type="range"
+                      id="quality-slider"
+                      min="10"
+                      max="100"
+                      value="80"
+                    />
+                  </div>
+                  <div class="preset-row">
+                    <button class="preset-chip" type="button" data-preset="90">
+                      90%
+                    </button>
+                    <button class="preset-chip" type="button" data-preset="70">
+                      70%
+                    </button>
+                    <button class="preset-chip" type="button" data-preset="50">
+                      50%
+                    </button>
+                    <button class="preset-chip" type="button" data-preset="30">
+                      30%
+                    </button>
+                  </div>
+                </div>
               </div>
-            </a>
+            </div>
+
+            <!-- File Grid -->
+            <div id="file-list" class="file-list hidden"></div>
           </div>
         </div>
       </section>
